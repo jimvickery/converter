@@ -2,7 +2,7 @@ module Converter
   class Currency < Grape::API
     version 'v1', using: :path
     format :json
-    # rescue_from :all
+    rescue_from :all
 
 
     helpers do 

@@ -4,6 +4,13 @@ module Converter
     format :json
     rescue_from :all
 
+    error_formatter :json, lambda { |message, backtrace, options, env|
+      {
+        status: 'failed',
+        message: message,
+        error_code: 123
+      }.to_json
+    }
 
     helpers do 
       def get_exchange_rate(currency)
